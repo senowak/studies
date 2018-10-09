@@ -1,0 +1,52 @@
+package seba;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
+
+public class aa{
+  public static void main(String[] args) throws FileNotFoundException{
+	  
+	  File file = new File("doc.txt");
+	  Scanner in = new Scanner(file);
+	  
+
+	  List<String> lista1 = new ArrayList<String>();
+	  List<Integer> lista2 = new ArrayList<Integer>();
+	  
+	  
+	  int i=0;
+	  int j=0;
+	  
+	  while (in.hasNext())
+	  {
+		  in.next();
+		  in.next();
+		  lista1.add( in.next());
+		  lista2.add(Integer.parseInt(in.next()));
+		  if (lista1.get(i).equals("PL")==false)
+			  {
+			  	lista1.remove(i);
+			  	lista2.remove(i);
+			  	i--;
+			  }
+		  
+		  i++;
+	  	}
+
+	  	Collections.sort(lista2);
+	  	
+	  	j=lista2.size();
+		
+		System.out.println("Min: " + (lista2.get(0) + lista2.get(1)));
+		System.out.println("Max: " + (lista2.get(j-1)+lista2.get(j-2)));
+
+		
+	  in.close();
+  }
+}
